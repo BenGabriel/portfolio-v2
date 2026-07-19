@@ -1051,8 +1051,7 @@ body.maximized-active {
     height: auto;
     flex-direction: row;
     align-items: center;
-    padding-right: 0;
-    padding-left: 0;
+    padding: 10px 0;
     border-right: none;
     border-top: 1px solid var(--border);
     overflow-x: auto;
@@ -1124,7 +1123,7 @@ body.maximized-active {
     font-weight: 500;
     font-size: 15px;
     min-width: unset;
-    margin-top: 10px;
+    margin-top: 1px;
   }
   .sidebar-nav a .label {
     display: block;
