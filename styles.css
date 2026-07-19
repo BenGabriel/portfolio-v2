@@ -1227,26 +1227,6 @@ body.maximized-active {
     transform: translateY(0);
   }
 }
-.home-content .prompt {
-  animation: fadeSlideUp 0.6s ease both;
-  animation-delay: 0.1s;
-}
-.home-content .home-name {
-  animation: fadeSlideUp 0.6s ease both;
-  animation-delay: 0.3s;
-}
-.home-content .home-title {
-  animation: fadeSlideUp 0.6s ease both;
-  animation-delay: 0.5s;
-}
-.home-content .home-location {
-  animation: fadeSlideUp 0.6s ease both;
-  animation-delay: 0.7s;
-}
-.home-content .home-links {
-  animation: fadeSlideUp 0.6s ease both;
-  animation-delay: 0.9s;
-}
 
 /* ── NAV HOVER PULSE ── */
 .sidebar-nav a {
