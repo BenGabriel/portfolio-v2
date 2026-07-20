@@ -300,7 +300,6 @@
   var animated = false;
 
   function animateNum(el, target, duration) {
-    var start = 0;
     var startTime = null;
     var suffix = el.textContent.replace(/[0-9]/g, "");
 

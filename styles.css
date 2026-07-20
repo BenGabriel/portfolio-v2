@@ -639,6 +639,7 @@ body.maximized-active {
   color: var(--accent);
   line-height: 1;
   margin-bottom: 6px;
+  font-variant-numeric: tabular-nums;
 }
 .stat-label {
   font-family: "JetBrains Mono", monospace;
@@ -1215,24 +1216,7 @@ body.maximized-active {
   transform: none;
 }
 
-/* ── HERO ENTRANCE ── */
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* ── NAV HOVER PULSE ── */
-.sidebar-nav a {
-  transition:
-    all 0.2s ease,
-    transform 0.2s ease;
-}
 .sidebar-nav a:hover {
   transform: scale(1.08);
 }
@@ -1257,7 +1241,4 @@ body.maximized-active {
   transform: translateY(0);
 }
 
-/* ── STATS COUNTER ── */
-.stat-number {
-  font-variant-numeric: tabular-nums;
-}
+
