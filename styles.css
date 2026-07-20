@@ -921,6 +921,8 @@ body.maximized-active {
   border: 1px solid var(--border);
   border-radius: 10px;
   transition: border-color 0.2s;
+  text-decoration: none;
+  color: inherit;
 }
 .contact-item:hover {
   border-color: var(--accent-mid);
@@ -948,7 +950,7 @@ body.maximized-active {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.contact-item .details a {
+.contact-item .details span {
   color: var(--text);
 }
 .contact-links {
