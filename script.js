@@ -72,10 +72,14 @@
             navLink.closest("li").classList.remove("section-hidden");
           }
           var hidden = JSON.parse(localStorage.getItem("hiddenSections") || "[]");
-          hidden = hidden.filter(function (h) { return h !== target.id; });
+          hidden = hidden.filter(function (h) {
+            return h !== target.id;
+          });
           localStorage.setItem("hiddenSections", JSON.stringify(hidden));
           var minimized = JSON.parse(localStorage.getItem("minimizedSections") || "[]");
-          minimized = minimized.filter(function (m) { return m !== target.id; });
+          minimized = minimized.filter(function (m) {
+            return m !== target.id;
+          });
           localStorage.setItem("minimizedSections", JSON.stringify(minimized));
         }
         target.scrollIntoView({ behavior: "smooth" });
@@ -179,7 +183,9 @@
         if (win.classList.contains("minimized")) {
           win.classList.remove("minimized");
           var minimized = JSON.parse(localStorage.getItem("minimizedSections") || "[]");
-          minimized = minimized.filter(function (m) { return m !== id; });
+          minimized = minimized.filter(function (m) {
+            return m !== id;
+          });
           localStorage.setItem("minimizedSections", JSON.stringify(minimized));
         }
         if (win.classList.contains("maximized")) {
@@ -281,7 +287,9 @@
         win.classList.remove("minimized");
         var id = section.id;
         var minimized = JSON.parse(localStorage.getItem("minimizedSections") || "[]");
-        minimized = minimized.filter(function (m) { return m !== id; });
+        minimized = minimized.filter(function (m) {
+          return m !== id;
+        });
         localStorage.setItem("minimizedSections", JSON.stringify(minimized));
       }
       win.classList.toggle("maximized");
@@ -289,7 +297,6 @@
       document.body.classList.toggle("maximized-active");
     });
   });
-
 })();
 
 // ── STATS COUNTER ──
@@ -318,17 +325,20 @@
     requestAnimationFrame(step);
   }
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting && !animated) {
-        animated = true;
-        nums.forEach(function (el) {
-          var val = parseInt(el.textContent, 10);
-          if (!isNaN(val)) animateNum(el, val, 1500);
-        });
-      }
-    });
-  }, { threshold: 0.3 });
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !animated) {
+          animated = true;
+          nums.forEach(function (el) {
+            var val = parseInt(el.textContent, 10);
+            if (!isNaN(val)) animateNum(el, val, 1500);
+          });
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
   observer.observe(grid);
 })();
 
@@ -338,18 +348,21 @@
   if (!grid) return;
   var items = grid.querySelectorAll(".stack-item");
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        items.forEach(function (item, i) {
-          setTimeout(function () {
-            item.classList.add("visible");
-          }, i * 50);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          items.forEach(function (item, i) {
+            setTimeout(function () {
+              item.classList.add("visible");
+            }, i * 50);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
   observer.observe(grid);
 })();
 
@@ -359,18 +372,21 @@
   if (!container) return;
   var cards = container.querySelectorAll(".exp-card");
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        cards.forEach(function (card, i) {
-          setTimeout(function () {
-            card.classList.add("visible");
-          }, i * 150);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.15 });
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          cards.forEach(function (card, i) {
+            setTimeout(function () {
+              card.classList.add("visible");
+            }, i * 150);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
   observer.observe(container);
 })();
 
@@ -380,18 +396,21 @@
   if (!grid) return;
   var items = grid.querySelectorAll(".contact-item");
 
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        items.forEach(function (item, i) {
-          setTimeout(function () {
-            item.classList.add("visible");
-          }, i * 150);
-        });
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.3 });
+  var observer = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          items.forEach(function (item, i) {
+            setTimeout(function () {
+              item.classList.add("visible");
+            }, i * 150);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.3 },
+  );
   observer.observe(grid);
 })();
 
@@ -410,14 +429,18 @@
     el.style.setProperty("--my", my + "px");
   }
 
-  window.addEventListener("mousemove", function (e) {
-    mx = e.clientX;
-    my = e.clientY;
-    if (!rafQueued) {
-      rafQueued = true;
-      requestAnimationFrame(flush);
-    }
-  }, { passive: true });
+  window.addEventListener(
+    "mousemove",
+    function (e) {
+      mx = e.clientX;
+      my = e.clientY;
+      if (!rafQueued) {
+        rafQueued = true;
+        requestAnimationFrame(flush);
+      }
+    },
+    { passive: true },
+  );
 })();
 
 // ── RAIN DROPS ──
@@ -429,10 +452,10 @@
 
   var config = {
     speed: 1.0,
-    density: 50,
+    density: 70,
     opacity: 0.7,
     trailLength: 10,
-    paused: false
+    paused: false,
   };
 
   function resize() {
@@ -447,7 +470,7 @@
       x: Math.random() * canvas.width,
       y: Math.random() * canvas.height,
       speed: Math.random() * 1.5 + 0.5,
-      opacity: Math.random() * 0.5 + 0.1
+      opacity: Math.random() * 0.5 + 0.1,
     };
   }
 
@@ -462,8 +485,7 @@
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     if (!config.paused) {
-      ctx.strokeStyle = getComputedStyle(document.documentElement)
-        .getPropertyValue("--accent").trim();
+      ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue("--accent").trim();
       canvas.style.opacity = config.opacity;
       drops.forEach(function (d) {
         ctx.globalAlpha = d.opacity;
@@ -488,9 +510,7 @@
     var max = parseFloat(input.max);
     var val = parseFloat(input.value);
     var pct = ((val - min) / (max - min)) * 100;
-    input.style.background =
-      "linear-gradient(to right, var(--accent) 0%, var(--accent) " +
-      pct + "%, var(--border) " + pct + "%, var(--border) 100%)";
+    input.style.background = "linear-gradient(to right, var(--accent) 0%, var(--accent) " + pct + "%, var(--border) " + pct + "%, var(--border) 100%)";
   }
 
   var toggle = document.querySelector(".rain-toggle");
@@ -548,14 +568,28 @@
       var saved = JSON.parse(localStorage.getItem("rainConfig"));
       if (saved) {
         config.speed = saved.speed || 1.0;
-        config.density = 50;
+        config.density = 70;
         config.opacity = saved.opacity || 0.7;
         config.trailLength = saved.trailLength || 10;
         config.paused = saved.paused || false;
-        if (speedInput) { speedInput.value = config.speed; speedVal.textContent = config.speed.toFixed(1) + "x"; updateGradient(speedInput); }
-        if (opacityInput) { opacityInput.value = config.opacity; opacityVal.textContent = Math.round(config.opacity * 100) + "%"; updateGradient(opacityInput); }
-        if (trailInput) { trailInput.value = config.trailLength; trailVal.textContent = config.trailLength + "px"; updateGradient(trailInput); }
-        if (toggle) { toggle.setAttribute("aria-checked", String(config.paused)); }
+        if (speedInput) {
+          speedInput.value = config.speed;
+          speedVal.textContent = config.speed.toFixed(1) + "x";
+          updateGradient(speedInput);
+        }
+        if (opacityInput) {
+          opacityInput.value = config.opacity;
+          opacityVal.textContent = Math.round(config.opacity * 100) + "%";
+          updateGradient(opacityInput);
+        }
+        if (trailInput) {
+          trailInput.value = config.trailLength;
+          trailVal.textContent = config.trailLength + "px";
+          updateGradient(trailInput);
+        }
+        if (toggle) {
+          toggle.setAttribute("aria-checked", String(config.paused));
+        }
         initDrops();
       }
     } catch (e) {}
