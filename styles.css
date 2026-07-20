@@ -1158,9 +1158,7 @@ body.maximized-active {
   #home {
     padding-left: 20px;
   }
-  #contact {
-    padding-right: 50px;
-  }
+
   .terminal-window.maximized {
     left: 0;
     bottom: 52px;

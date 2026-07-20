@@ -48,6 +48,13 @@
         }
       }
 
+      var maxWin = document.querySelector(".terminal-window.maximized");
+      if (maxWin) {
+        maxWin.classList.remove("maximized");
+        maxWin.closest("section").classList.remove("maximized-section");
+        document.body.classList.remove("maximized-active");
+      }
+
       var target = document.querySelector(this.getAttribute("href"));
       if (target) {
         if (target.style.display === "none") {
